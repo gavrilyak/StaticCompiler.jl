@@ -44,3 +44,7 @@ end
 # trig.jl
 @device_override @noinline Base.Math.sincos_domain_error(x) =
     @print_and_throw c"sincos(x) is only defined for finite x."
+@device_override @noinline Base.Math.acos_domain_error(x) =
+    @print_and_throw c"acos(x) not defined for |x| > 1"
+
+
